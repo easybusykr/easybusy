@@ -14,8 +14,8 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      /* [수정 완료] 빛의 반경을 극도로 좁혀(0%~15%만 화이트) 로고와 슬로건 레이어에만 광량을 집중 */
-      background: radial-gradient(circle at center, #ffffff 0%, #ffffff 15%, #ECEBE6 50%, #DEDCD5 100%);
+      /* [원상 복구 완료] 어떠한 계조도 없는 가장 깨끗하고 당당한 순수 100% 화이트 */
+      background: #ffffff; 
       color: #000000;      
       
       font-family: 'MinionVariable', Georgia, serif; 
@@ -34,6 +34,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      /* 화면 정중앙에서 상단으로 15%만큼 밀어 올려 시각적 안정감 확보 */
       transform: translateY(-15%); 
     }
 
@@ -43,15 +44,14 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* 압축된 중앙 화이트 광원 영역과 로고 테두리를 지우기 위해 유지 */
-      mix-blend-mode: multiply; 
+      /* 배경이 완벽한 화이트이므로 블렌딩 에러 없이 자연스럽게 녹아듭니다 */
     }
 
     /* 슬로건 타이틀 스타일 */
     h1 {
       margin: 0;
       font-size: 24px;     
-      font-weight: 700;    
+      font-weight: 700;    /* 묵직하게 다듬은 굵기값 유지 */
       letter-spacing: 0.5px; 
     }
   </style>
