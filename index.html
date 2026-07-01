@@ -2,6 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
+  
   <title>EASTBUSY</title>
   <style>
     /* 1. 깃허브에 올린 내 폰트 파일(woff2)을 웹사이트 시스템에 등록 */
@@ -14,9 +19,8 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      /* [원상 복구 완료] 어떠한 계조도 없는 가장 깨끗하고 당당한 순수 100% 화이트 */
-      background: #ffffff; 
-      color: #000000;      
+      background: #ffffff !important; /* !important를 붙여 모바일 브라우저의 강제 변환을 원천 차단 */
+      color: #000000 !important;      
       
       font-family: 'MinionVariable', Georgia, serif; 
       
@@ -34,7 +38,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* 화면 정중앙에서 상단으로 15%만큼 밀어 올려 시각적 안정감 확보 */
       transform: translateY(-15%); 
     }
 
@@ -44,15 +47,23 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* 배경이 완벽한 화이트이므로 블렌딩 에러 없이 자연스럽게 녹아듭니다 */
+      /* [삭제 완료] 흐려짐의 원인이었던 mix-blend-mode를 완전히 제거하여 모바일 렌더링을 선명하게 복구 */
     }
 
     /* 슬로건 타이틀 스타일 */
     h1 {
       margin: 0;
       font-size: 24px;     
-      font-weight: 700;    /* 묵직하게 다듬은 굵기값 유지 */
+      font-weight: 700;    
       letter-spacing: 0.5px; 
+    }
+
+    /* [추가] 스마트폰 앱 내부(삼성인터넷 등) 고유의 다크모드 강제 필터까지 무력화하는 스마트폰 전용 코드 */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+      }
     }
   </style>
 </head>
