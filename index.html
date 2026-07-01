@@ -1,13 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <title>EASTBUSY</title>
   <style>
-    body {background:#000; color:#fff; font-family:sans-serif; display:flex; justify-content:center; align-items:center; height:100vh;}
+    /* 화면 전체 기본 세팅 (배경을 흰색으로 변경) */
+    body {
+      background: #ffffff; /* 웹사이트 배경색: 흰색 */
+      color: #000000;      /* 글자 색상: 검은색 */
+      font-family: sans-serif; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 로고와 문구를 감싸는 세로 정렬 컨테이너 */
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 정중앙에서 위쪽 방향으로 15%만큼 밀어 올리기 */
+      transform: translateY(-15%); 
+    }
+
+    /* 로고 이미지 스타일 */
+    .logo-img {
+      width: 280px;       /* 화면에 보여질 로고 가로 크기 (원하는 대로 조절) */
+      height: auto;       /* 가로에 맞춰 세로 비율 고정 */
+      margin-bottom: 24px; /* 로고와 아래 Coming Soon 글자 사이의 간격 */
+    }
+
+    /* Coming Soon 타이틀 스타일 */
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
   </style>
 </head>
 <body>
-  <h1>Coming Soon</h1>
+
+  <div class="content-box">
+    <img src="logo.svg" alt="EASTBUSY 로고" class="logo-img">
+    
+    <h1>Coming Soon</h1>
+  </div>
+
 </body>
 </html>
