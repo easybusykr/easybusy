@@ -14,8 +14,8 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      /* [수정 완료] 로고 주변은 완전한 화이트(#ffffff) 광량을 폭발시키고, 외각으로 멀어질수록 미세하게 음영이 지는 포인트 라이팅 */
-      background: radial-gradient(circle at center, #ffffff 0%, #ffffff 35%, #F9F9F8 75%, #F2F1ED 100%);
+      /* [수정 완료] 빛의 반경을 극도로 좁혀(0%~15%만 화이트) 로고와 슬로건 레이어에만 광량을 집중 */
+      background: radial-gradient(circle at center, #ffffff 0%, #ffffff 15%, #ECEBE6 50%, #DEDCD5 100%);
       color: #000000;      
       
       font-family: 'MinionVariable', Georgia, serif; 
@@ -43,7 +43,7 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* 중앙의 강력한 흰색 광량 영역과 로고의 흰색 사각형이 수학적으로 100% 일치되어 경계선이 사라집니다 */
+      /* 압축된 중앙 화이트 광원 영역과 로고 테두리를 지우기 위해 유지 */
       mix-blend-mode: multiply; 
     }
 
