@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <title>EASTBUSY</title>
   <style>
-    /* [추가] 1. 깃허브에 올린 내 폰트 파일(woff2)을 웹사이트 시스템에 등록 */
+    /* 1. 깃허브에 올린 내 폰트 파일(woff2)을 웹사이트 시스템에 등록 */
     @font-face {
-      font-family: 'MinionVariable'; /* 사용할 폰트의 고유 별명 지정 */
-      src: url('minionvariableconcept.woff2') format('woff2'); /* 방금 올린 파일명과 정확히 일치 */
+      font-family: 'MinionVariable'; 
+      src: url('minionvariableconcept.woff2') format('woff2'); 
       font-weight: normal;
       font-style: normal;
     }
 
-    /* 화면 전체 기본 세팅 (배경을 흰색으로 변경) */
+    /* 화면 전체 기본 세팅 */
     body {
-      background: #ffffff; /* 웹사이트 배경색: 흰색 */
-      color: #000000;      /* 글자 색상: 검은색 */
+      /* [수정 완료] 웹사이트 전체 배경색을 감각적인 웜베이지(#F0EEE9)로 변경 */
+      background: #F0EEE9; 
+      color: #000000;      
       
-      /* [수정] 2. 기본 서체 대신 방금 등록한 'MinionVariable' 서체를 1순위로 적용합니다 */
       font-family: 'MinionVariable', Georgia, serif; 
       
       display: flex; 
@@ -26,7 +26,7 @@
       height: 100vh;
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased; /* 글자 외곽선을 깨끗하고 선명하게 다듬는 옵션 */
+      -webkit-font-smoothing: antialiased; 
     }
 
     /* 로고와 문구를 감싸는 세로 정렬 컨테이너 */
@@ -40,16 +40,16 @@
 
     /* 로고 이미지 스타일 */
     .logo-img {
-      width: 280px;       /* 화면에 보여질 로고 가로 크기 (원하는 대로 조절) */
-      height: auto;       /* 가로에 맞춰 세로 비율 고정 */
-      margin-bottom: 24px; /* 로고와 아래 슬로건 글자 사이의 간격 */
+      width: 280px;       
+      height: auto;       
+      margin-bottom: 24px; 
     }
 
     /* 슬로건 타이틀 스타일 */
     h1 {
       margin: 0;
       font-size: 24px;     
-      font-weight: 700;    /* 700 또는 bold로 수정하여 굵기를 묵직하게 변경 */
+      font-weight: 700;    /* 이전 단계에서 다듬은 묵직한 굵기 유지 */
       letter-spacing: 0.5px; 
     }
   </style>
