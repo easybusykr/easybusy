@@ -14,7 +14,8 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      background: #F0EEE9; /* 감각적인 웜베이지 배경 */
+      /* [수정 완료] 전체 배경색을 완전한 흰색으로 복구 */
+      background: #ffffff; 
       color: #000000;      
       
       font-family: 'MinionVariable', Georgia, serif; 
@@ -42,8 +43,7 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* [핵심 추가] 흰색 배경을 투명하게 빼고 베이지 배경과 완벽하게 블렌딩합니다 */
-      mix-blend-mode: multiply; 
+      /* [삭제 완료] 불필요해진 mix-blend-mode 속성을 지워 코드를 청결하게 만들었습니다 */
     }
 
     /* 슬로건 타이틀 스타일 */
