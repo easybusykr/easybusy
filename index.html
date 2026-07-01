@@ -12,11 +12,14 @@
       font-style: normal;
     }
 
-    /* 화면 전체 기본 세팅 (극적인 조명 효과를 위해 전체 배경을 살짝 차분한 톤으로 다운) */
+    /* 화면 전체 기본 세팅 */
     body {
-      background: #EAE8E2; 
+      /* [수정 완료] 로고 주변은 완전한 화이트(#ffffff) 광량을 폭발시키고, 외각으로 멀어질수록 미세하게 음영이 지는 포인트 라이팅 */
+      background: radial-gradient(circle at center, #ffffff 0%, #ffffff 35%, #F9F9F8 75%, #F2F1ED 100%);
       color: #000000;      
+      
       font-family: 'MinionVariable', Georgia, serif; 
+      
       display: flex; 
       justify-content: center; 
       align-items: center; 
@@ -28,30 +31,10 @@
 
     /* 로고와 문구를 감싸는 세로 정렬 컨테이너 */
     .content-box {
-      position: relative; /* 내부 조명 레이어 배치를 위한 기준점 설정 */
       display: flex;
       flex-direction: column;
       align-items: center;
       transform: translateY(-15%); 
-      z-index: 1;
-    }
-
-    /* [핵심 추가] 로고 바로 뒤에 배치될 원형 쉐이프 스팟라이트 조명 레이어 */
-    .spotlight-layer {
-      position: absolute;
-      top: 35px;              /* 로고 그래픽의 정중앙 근처로 조명 위치 미세 조정 */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 180px;           /* 원형 쉐이프 기본 가로 크기 */
-      height: 180px;          /* 원형 쉐이프 기본 세로 크기 */
-      background: #ffffff;    /* 조명 중심부 색상 (완전 화이트) */
-      border-radius: 50%;     /* 완벽한 원형(Circle) 쉐이프 생성 */
-      
-      /* 포토샵 가우시안 블러 및 에펙 패더 효과처럼 외각을 극도로 부드럽게 확 퍼뜨립니다 */
-      filter: blur(50px);     
-      box-shadow: 0 0 100px 60px #ffffff; 
-      
-      z-index: -1;            /* 로고보다 뒤쪽에 배치하여 배경 조명 역할 수행 */
     }
 
     /* 로고 이미지 스타일 */
@@ -60,7 +43,7 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* 뒷배경 원형 조명 레이어의 빛과 로고의 흰색 사각형 테두리가 자연스럽게 오버랩되도록 처리 */
+      /* 중앙의 강력한 흰색 광량 영역과 로고의 흰색 사각형이 수학적으로 100% 일치되어 경계선이 사라집니다 */
       mix-blend-mode: multiply; 
     }
 
@@ -70,15 +53,12 @@
       font-size: 24px;     
       font-weight: 700;    
       letter-spacing: 0.5px; 
-      text-shadow: 0 0 20px rgba(255,255,255,0.8); /* 조명 영역 위에서 글자가 더 선명하게 보이도록 미세 음영 처리 */
     }
   </style>
 </head>
 <body>
 
   <div class="content-box">
-    <div class="spotlight-layer"></div>
-
     <img src="logo.svg" alt="EASTBUSY 로고" class="logo-img">
     
     <h1>&ldquo;Make it Easy Make it Busy&rdquo;</h1>
