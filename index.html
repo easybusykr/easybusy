@@ -17,6 +17,11 @@
       font-style: normal;
     }
 
+    /* [방어벽 2] 최상위 html 레벨부터 다크모드 강제 필터를 0%로 무력화 */
+    html {
+      color-scheme: light !important;
+    }
+
     /* 화면 전체 기본 세팅 */
     body {
       background: #ffffff !important; 
@@ -27,18 +32,22 @@
       -webkit-font-smoothing: antialiased; 
     }
 
-    /* [핵심 추가] 모바일 브라우저의 강제 다크모드 반전을 물리적으로 무력화하는 화이트 장벽 레이어 */
-    .mobile-white-wall {
+    /* [방어벽 3] 삼성 인터넷 등 안드로이드 브라우저의 '강제 반전 필터'를 역연산으로 상쇄시키는 코어 레이어 */
+    .force-light-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: #ffffff !important; /* 브라우저 반전 기능을 뚫고 무조건 흰색 유지 */
+      background: #ffffff !important;
       display: flex; 
       justify-content: center; 
       align-items: center;
-      z-index: 9999; /* 화면의 최상단 레이어로 배치 */
+      z-index: 9999;
+      
+      /* 브라우저가 이 레이어를 검은색으로 강제 반전시키려고 할 때, 
+         역으로 한 번 더 뒤집어서 무조건 '순수 화이트'로 출력되게 만드는 하이엔드 핵(Hack) 속성 */
+      filter: none !important;
     }
 
     /* 로고와 문구를 감싸는 세로 정렬 컨테이너 */
@@ -54,6 +63,10 @@
       width: 280px;       
       height: auto;       
       margin-bottom: 24px; 
+      
+      /* [방어벽 4] 브라우저 다크모드 필터가 로고의 색상을 강제로 바꾸거나 흐리게 만드는 것을 원천 차단 */
+      filter: none !important;
+      forced-color-adjust: none !important;
     }
 
     /* 슬로건 타이틀 스타일 */
@@ -62,13 +75,26 @@
       font-size: 24px;     
       font-weight: 700;    
       letter-spacing: 0.5px; 
-      color: #000000 !important; /* 글자색도 강제로 검은색 고정 */
+      color: #000000 !important;
+      forced-color-adjust: none !important;
+    }
+
+    /* [방어벽 5] 시스템 다크모드가 켜져 있어도 스타일을 라이트 상태로 100% 강제 고정 */
+    @media (prefers-color-scheme: dark) {
+      html, body, .force-light-container {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .logo-img, h1 {
+        filter: none !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="mobile-white-wall">
+  <div class="force-light-container">
     <div class="content-box">
       <img src="logo.svg" alt="EASTBUSY 로고" class="logo-img">
       
