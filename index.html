@@ -19,18 +19,26 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      background: #ffffff !important; /* !important를 붙여 모바일 브라우저의 강제 변환을 원천 차단 */
+      background: #ffffff !important; 
       color: #000000 !important;      
-      
       font-family: 'MinionVariable', Georgia, serif; 
-      
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh;
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased; 
+    }
+
+    /* [핵심 추가] 모바일 브라우저의 강제 다크모드 반전을 물리적으로 무력화하는 화이트 장벽 레이어 */
+    .mobile-white-wall {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff !important; /* 브라우저 반전 기능을 뚫고 무조건 흰색 유지 */
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      z-index: 9999; /* 화면의 최상단 레이어로 배치 */
     }
 
     /* 로고와 문구를 감싸는 세로 정렬 컨테이너 */
@@ -46,8 +54,6 @@
       width: 280px;       
       height: auto;       
       margin-bottom: 24px; 
-      
-      /* [삭제 완료] 흐려짐의 원인이었던 mix-blend-mode를 완전히 제거하여 모바일 렌더링을 선명하게 복구 */
     }
 
     /* 슬로건 타이틀 스타일 */
@@ -56,23 +62,18 @@
       font-size: 24px;     
       font-weight: 700;    
       letter-spacing: 0.5px; 
-    }
-
-    /* [추가] 스마트폰 앱 내부(삼성인터넷 등) 고유의 다크모드 강제 필터까지 무력화하는 스마트폰 전용 코드 */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #ffffff !important;
-        color: #000000 !important;
-      }
+      color: #000000 !important; /* 글자색도 강제로 검은색 고정 */
     }
   </style>
 </head>
 <body>
 
-  <div class="content-box">
-    <img src="logo.svg" alt="EASTBUSY 로고" class="logo-img">
-    
-    <h1>&ldquo;Make it Easy Make it Busy&rdquo;</h1>
+  <div class="mobile-white-wall">
+    <div class="content-box">
+      <img src="logo.svg" alt="EASTBUSY 로고" class="logo-img">
+      
+      <h1>&ldquo;Make it Easy Make it Busy&rdquo;</h1>
+    </div>
   </div>
   
 </body>
