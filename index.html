@@ -14,8 +14,8 @@
 
     /* 화면 전체 기본 세팅 */
     body {
-      /* [수정 완료] 전체 배경색을 완전한 흰색으로 복구 */
-      background: #ffffff; 
+      /* [수정 완료] 정중앙은 완전한 흰색(#ffffff), 외각은 부드러운 미색(#F5F4F0)으로 스팟라이트 효과 */
+      background: radial-gradient(circle at center, #ffffff 0%, #F5F4F0 70%, #EAE8E2 100%);
       color: #000000;      
       
       font-family: 'MinionVariable', Georgia, serif; 
@@ -43,7 +43,8 @@
       height: auto;       
       margin-bottom: 24px; 
       
-      /* [삭제 완료] 불필요해진 mix-blend-mode 속성을 지워 코드를 청결하게 만들었습니다 */
+      /* 로고 파일의 흰색 배경이 외각 음영과 부드럽게 섞이도록 Multiply를 다시 적용했습니다 */
+      mix-blend-mode: multiply; 
     }
 
     /* 슬로건 타이틀 스타일 */
